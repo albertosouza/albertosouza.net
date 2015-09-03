@@ -1,6 +1,4 @@
-#We.js we-project-albertosouza-net project
-
-> [write something about yout project here]
+#Blog pessoal do Alberto Souza
 
 **Build With:**
 
@@ -8,7 +6,21 @@
 
 #How to install
 
-See http://wejs.org/docs/we/getstarted
+1. Clone this project
+2. Create one database for this project
+2. Enter in project folder
+3. Copy config/local.example to config/local.js
+4. Configure you database params
+5. install npm packages:
+```sh
+npm install
+```
+6. start with:
+```sh
+npm run dev
+```
+
+See http://wejs.org for we.js docs
 
 # Test
 
