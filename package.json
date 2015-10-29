@@ -16,6 +16,7 @@
   "dependencies": {
     "we-core": "0.3.81",
     "we-plugin-article": "0.3.1",
+    "we-plugin-bootstrap3": "0.3.2",
     "we-plugin-disqus": "0.3.0",
     "we-plugin-file": "0.3.12",
     "we-plugin-form": "0.3.18",
