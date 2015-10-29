@@ -1,6 +1,6 @@
 var path = require('path');
 module.exports = {
-  appName: 'Programando o futuro',
+  appName: 'Programming the future',
   subtitle: ' ',
 
   // default favicon, change in your project config/local.js
@@ -10,5 +10,18 @@ module.exports = {
 
   site: {
     homeBg :'/public/project/home-bg.jpg'
+  },
+
+  rss: {
+    models: {
+      article: { // model name
+        title: 'Articles from Alberto Souza site', // title of your xml file
+        description: 'My newest site articles', // description for your xml file
+        item: {
+          title: 'title', // model attribute to get title
+          description: 'about'  // model attribute to get description
+        }
+      }
+    }
   }
 }
