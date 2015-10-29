@@ -14,7 +14,7 @@
     "prepublish": "npm prune"
   },
   "dependencies": {
-    "we-core": "0.3.100",
+    "we-core": "0.3.101",
     "we-plugin-article": "0.3.3",
     "we-plugin-bootstrap3": "0.3.2",
     "we-plugin-disqus": "0.3.0",
