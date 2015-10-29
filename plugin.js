@@ -15,7 +15,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       model: 'article',
       action: 'find',
       template: 'article/find',
-      title: '#'
+      title: 'Programando o futuro'
       // titleHandler  : 'i18n',
       // titleI18n: 'main.index',
     }
