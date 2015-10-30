@@ -1,6 +1,6 @@
 var path = require('path');
 module.exports = {
-  appName: 'Programming the future',
+  appName: 'The coder',
   subtitle: ' ',
 
   // default favicon, change in your project config/local.js
@@ -15,7 +15,7 @@ module.exports = {
   rss: {
     models: {
       article: { // model name
-        title: 'Articles from Alberto Souza site', // title of your xml file
+        title: 'Articles from Alberto Souza site - The coder!', // title of your xml file
         description: 'My newest site articles', // description for your xml file
         item: {
           title: 'title', // model attribute to get title
