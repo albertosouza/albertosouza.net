@@ -1,7 +1,7 @@
 var path = require('path');
 module.exports = {
-  appName: 'The coder',
-  subtitle: ' ',
+  appName: 'Alberto Souza',
+  subtitle: 'Coder',
 
   // default favicon, change in your project config/local.js
   favicon: path.resolve(__dirname, '..', 'files/public/favicon.png'),

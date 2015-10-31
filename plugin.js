@@ -15,7 +15,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       model: 'article',
       action: 'find',
       template: 'article/find',
-      title: 'The coder'
+      title: 'Alberto Souza'
       // titleHandler  : 'i18n',
       // titleI18n: 'main.index',
     }
