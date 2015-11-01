@@ -236,6 +236,7 @@
   "vocabulary.find": "Vocabularies",
   "we.email.AccontActivationEmail.subject": "User account validation email",
   "widget.add": "Add widget",
+  "widget.create": "Create widget",
   "widget.delete.confirm.msg": "Are you sure you want to delete this widget?",
   "widget.html.label": "HTML or text block",
   "widget.in-page": "In current page",
@@ -243,6 +244,10 @@
   "widget.in-session": "In this session",
   "widget.in-session-record": "In contents of this session",
   "widget.passport-strategies.label": "Authentication options block",
+  "widget.select.vocabulary": "Select one vocabulary",
   "widget.sort": "Sort widgets",
-  "widget.visibility": "Show the widget: "
+  "widget.update": "Update widget",
+  "widget.visibility": "Show the widget: ",
+  "widget.vocabulary.class": "Menu class",
+  "widget.vocabulary.menuId": "Menu id"
 }

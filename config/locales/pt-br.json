@@ -181,6 +181,7 @@
   "vocabulary.find": "Vocabulários",
   "we.email.AccontActivationEmail.subject": "Validar email de usuário",
   "widget.add": "Adicionar widget",
+  "widget.create": "Criar widget",
   "widget.delete.confirm.msg": "Vocẽ tem certeza que deseja deletar esse widget?",
   "widget.html.label": "Texto ou HTML customizado",
   "widget.in-context": "No contexto atual",
@@ -189,5 +190,9 @@
   "widget.in-session": "Nessa sessão",
   "widget.in-session-record": "Nos conteúdos dessa sessão",
   "widget.passport-strategies.label": "Opções de autenticação",
-  "widget.visibility": "Exibir o widget: "
+  "widget.select.vocabulary": "Selecione uma categoria",
+  "widget.update": "Atualizar widget",
+  "widget.visibility": "Exibir o widget: ",
+  "widget.vocabulary.class": "Classe do menu",
+  "widget.vocabulary.menuId": "Id do menu"
 }

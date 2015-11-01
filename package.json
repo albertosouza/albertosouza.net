@@ -1,6 +1,6 @@
 {
   "name": "we-project-albertosouza-net",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "private": true,
   "main": "./app.js",
   "scripts": {
@@ -23,9 +23,9 @@
     "we-plugin-google-analytics": "0.3.3",
     "we-plugin-menu": "0.3.6",
     "we-plugin-rss": "^0.3.3",
-    "we-plugin-vocabulary": "0.3.14",
+    "we-plugin-vocabulary": "0.3.15",
     "we-theme-admin-default": "0.3.10",
-    "we-theme-blog-startbootstrap-clean": "0.3.6"
+    "we-theme-blog-startbootstrap-clean": "0.3.7"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
