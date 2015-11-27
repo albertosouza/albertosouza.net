@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "we-core": "0.3.106",
-    "we-plugin-article": "^0.3.8",
+    "we-plugin-article": "^0.3.9",
     "we-plugin-bootstrap3": "0.3.2",
     "we-plugin-disqus": "0.3.0",
     "we-plugin-file": "0.3.20",
