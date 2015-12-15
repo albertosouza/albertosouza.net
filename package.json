@@ -4,13 +4,13 @@
   "private": true,
   "main": "./app.js",
   "scripts": {
-    "dev": "PORT=4000 node app.js",
+    "dev": "node app.js --dev",
     "verbose": "PORT=4000 LOG_LV=verbose node app.js",
-    "prod": "PORT=4000 NODE_ENV=prod node app.js",
+    "prod": "node app.js --prod",
     "deps": "npm install && bower install",
     "start": "PORT=4000 node app.js",
     "build": "gulp build && we loadLocales",
-    "test": "NODE_ENV=test LOG_LV=info ./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js",
+    "test": "./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js",
     "prepublish": "npm prune"
   },
   "dependencies": {
