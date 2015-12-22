@@ -265,6 +265,7 @@
   "menu.user.view": "View profile",
   "on": "on",
   "paginate.sumary": "{{recordsLength}} of {{count}}",
+  "passport.strategy.local": "Login with system email and password",
   "permission.link": "Permissions",
   "permission_manage": "Permissions",
   "portfolio.create": "Create portfolio",

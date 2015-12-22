@@ -213,6 +213,7 @@
   "menu.user.view": "Ver perfil",
   "on": "em",
   "paginate.sumary": "Exibindo {{recordsLength}} de {{count}}",
+  "passport.strategy.local": "Se autenticar usando o email e senha criados no sistema",
   "permission.link": "Permissões",
   "portfolio.create": "Criar portfólio",
   "portfolio.edit": "editar",
