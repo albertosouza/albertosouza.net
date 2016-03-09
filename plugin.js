@@ -16,7 +16,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       action: 'find',
       template: 'article/find',
       title: 'Alberto Souza',
-      layoutName: 'default'
+      // layoutName: 'default'
       // titleHandler  : 'i18n',
       // titleI18n: 'main.index',
     }
