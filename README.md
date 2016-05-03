@@ -22,12 +22,6 @@ npm run dev
 
 See http://wejs.org for we.js docs
 
-# Test
-
-```
-npm test
-```
-
 #Copyright and license
 
 MIT
