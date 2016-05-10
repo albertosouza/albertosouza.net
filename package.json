@@ -1,6 +1,6 @@
 {
   "name": "we-project-albertosouza-net",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "main": "./app.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "dependencies": {
     "express-mysql-session": "^1.0.0",
     "mysql": "^2.10.2",
-    "we-core": "^1.2.8",
+    "we-core": "^1.2.9",
     "we-plugin-article": "^0.3.13",
     "we-plugin-bootstrap3": "0.3.2",
     "we-plugin-disqus": "1.0.0",
