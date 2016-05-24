@@ -29,7 +29,8 @@
     "we-plugin-rss": "1.0.0",
     "we-plugin-vocabulary": "0.3.23",
     "we-theme-admin-default": "^1.0.1",
-    "we-theme-blog-startbootstrap-clean": "^1.0.0"
+    "we-theme-blog-startbootstrap-clean": "^1.0.0",
+    "we-plugin-widget": "~1.0.0"
   },
   "devDependencies": {
     "gulp": "3.9.1",
