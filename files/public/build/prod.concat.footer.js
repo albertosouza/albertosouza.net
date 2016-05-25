@@ -52193,7 +52193,7 @@ $.validator.setDefaults({
  * We.js client side lib
  */
 
-(function (window) {
+(function () {
 
 if ($.timepicker) {
   $.datepicker.setDefaults($.timepicker.regional[window.WE_BOOTSTRAP_CONFIG.locale]);
@@ -52224,16 +52224,6 @@ var we = {
     //this.handlerErrorMessage();
 
     if (location.pathname.substring(0, 6) === '/admin') this.isAdmin = true;
-
-    if (this.config.widgetContext) {
-      // add current page headers for ajax requests
-      $.ajaxSetup({
-        headers: {
-          'wejs-context': this.config.widgetContext,
-          'wejs-theme': this.config.theme
-        }
-      });
-    }
 
     cb();
   },
@@ -52305,227 +52295,6 @@ var we = {
     sanitize: function sanitize(str) {
       return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
-  }
-};
-
-we.structure = {
-  addWidgetModalFormId: '#AddWidgetFormModal',
-  updateWidgetModalFormId: '#updateWidgetFormModal',
-  sortWidgetModalFormId: '#sortWidgetFormModal',
-
-  showLayoutEditor: function showLayoutEditor() {
-    $('#we-layout-start-edit-btn').hide();
-    $('#we-layout-stop-edit-btn').show();
-    $('body').addClass('we-editing-layout');
-  },
-  hideLayoutEditor: function hideLayoutEditor() {
-    $('#we-layout-start-edit-btn').show();
-    $('#we-layout-stop-edit-btn').hide();
-    $('body').removeClass('we-editing-layout');
-  },
-  regions: {},
-
-  newWidgetObj: {},
-  setForDataValuesWithVisibility: function(formData) {
-    switch(formData.visibility) {
-      case 'in-page':
-        if (we.config.modelName && we.config.modelId) {
-          formData.modelName = we.config.modelName;
-          formData.modelId = we.config.modelId;
-        } else {
-          formData.path = location.pathname;
-        }
-        break;
-      case 'in-session':
-        formData.modelName = we.config.modelName;
-        formData.modelId = null;
-        break;
-      case 'in-session-record':
-        formData.modelName = we.config.modelName;
-        formData.modelId = null;
-        formData.inRecord = true;
-        break;
-      default:
-        formData.modelName = null;
-        formData.modelId = null;
-    }
-  },
-  openAddWidgetForm: function openAddWidgetForm(regionName) {
-    var modal = $(we.structure.addWidgetModalFormId);
-    if (!modal) throw new Error('Add widget modal not found!', we.structure.addWidgetModalFormId);
-
-    this.newWidgetObj = {
-      theme: we.config.theme,
-      layout: $('#we-layout').attr('data-we-layout'),
-      type: '',
-      regionName: regionName,
-      context: $('#we-layout').attr('data-we-widgetcontext')
-    };
-
-    $.ajax({
-      headers: { 'we-widget-action': 'getWidgetTypes' },
-      url: location.pathname,
-      method: 'POST',
-      data: {}
-    }).then(function afterGetWidgetTypes(r) {
-      $('#AddWidgetFormModal-select-type').select2({
-        data: r.widget.map(function (w){
-          return {
-            id : w.type,
-            text: w.label+' ('+w.type+')'
-          };
-        })
-      });
-    });
-
-    modal.find('.steps-body .step1').show();
-    modal.find('.steps-body .step2').hide();
-
-    modal.modal('show');
-  },
-  goToStep1: function goToStep1() {
-    var modal = $(we.structure.addWidgetModalFormId);
-    modal.find('.steps-body .step1').show();
-  },
-  goToStep2: function goToStep2() {
-    var self = this;
-
-    var modal = $(we.structure.addWidgetModalFormId);
-    var regionWidgetsTag = $('#region-'+ this.newWidgetObj.regionName +'-widgets');
-
-    this.newWidgetObj.type = $('#AddWidgetFormModal-select-type').val();
-    // type is required for step 2
-    if (!this.newWidgetObj.type) return;
-
-    modal.find('.steps-body .step1').hide();
-    modal.find('.steps-body .step2').show();
-
-    var url = '/api/v1/widget-form/'+this.newWidgetObj.theme;
-    url += '/' + this.newWidgetObj.layout;
-    url += '/' + this.newWidgetObj.type;
-    url += '?regionName=' + this.newWidgetObj.regionName;
-
-    if (we.config.widgetContext)
-      url += '&context=' + we.config.widgetContext;
-
-    $.get(url).then(function (f) {
-      modal.find('.steps-body .step2').html(f);
-      modal.modal('show');
-
-      modal.find('form').submit(function( event ) {
-        event.preventDefault();
-        var formData = {};
-
-        modal.find('form').serializeArray().forEach(function (d) {
-          formData[d.name] = d.value;
-        });
-
-        we.structure.setForDataValuesWithVisibility(formData);
-
-        formData.theme = self.newWidgetObj.theme;
-        formData.regionName = self.newWidgetObj.regionName;
-        formData.context = we.config.widgetContext;
-
-        $.ajax({
-          headers: { 'we-widget-action': 'add' },
-          url: location.pathname+'?responseType=json',
-          method: 'POST',
-          data: {
-            widget: JSON.stringify(formData)
-          }
-        }).then(function (r) {
-          // insert after regions actions
-          regionWidgetsTag.prepend(r.widget.html);
-        }).always(function() {
-          modal.modal('hide');
-        });
-      });
-    });
-  },
-  updateWidget: function updateWidget(id) {
-    var modalForm = $(this.updateWidgetModalFormId);
-
-    if (!id) return console.warn('data-id attribute is required for updateWidget');
-
-    var widgetTag = $('#widget-'+id);
-    modalForm.modal('show');
-
-    var url = location.pathname;
-
-    $.ajax({
-      headers: { 'we-widget-action': 'getUpdateForm' },
-      url: url,
-      method: 'POST',
-      data: {
-        widget: JSON.stringify({ id: id })
-      }
-    }).then(function (f) {
-      modalForm.find('.modal-body').html(f);
-
-      modalForm.find('form').submit(function( event ) {
-        event.preventDefault();
-        var formData = { id: id };
-
-        modalForm.find('form').serializeArray().forEach(function (d) {
-          formData[d.name] = d.value;
-        });
-
-        we.structure.setForDataValuesWithVisibility(formData);
-
-        $.ajax({
-          headers: { 'we-widget-action': 'update' },
-          url: url+'?responseType=json',
-          method: 'POST',
-          data: {
-            widget: JSON.stringify(formData)
-          }
-        }).then(function (r) {
-          we.events.emit('model-update', 'widget', r.widget);
-          widgetTag.after(r.widget.html);
-          widgetTag.remove();
-        }).always(function(){
-          modalForm.modal('hide');
-        });
-      });
-    });
-  },
-  deleteWidget: function deleteWidget(id) {
-    if (!id) return console.warn('data-id attribute is required for deleteWidget');
-
-    if (confirm(we.config.structure.deleteWidgetConfirm)) {
-      $.ajax({
-        headers: { 'we-widget-action': 'delete' },
-        url: location.pathname+'?responseType=json',
-        method: 'POST',
-        data: {
-          widgetId: id
-        }
-      }).then(function (r) {
-        we.events.emit('model-update-after', 'widget', r);
-        $('#widget-'+id).remove();
-      });
-    }
-  },
-
-  sortRegionWidgetsForm: function sortRegionWidgetsForm(regionName) {
-    var modal = $(we.structure.sortWidgetModalFormId);
-    if (!modal) throw new Error('sort widget modal not found!', we.structure.sortWidgetModalFormId);
-   modal.modal('show');
-
-    var url = location.pathname;
-
-    $.ajax({
-      headers: { 'we-widget-action': 'getWidgetsToSort' },
-      url: url+'?responseType=modal&skipHTML=true',
-      method: 'POST',
-      data: {
-        params: JSON.stringify({
-          regionName: regionName
-        })
-      }
-    }).then(function (f) {
-      modal.find('.modal-body').html(f);
-    });
   }
 };
 
@@ -52608,59 +52377,6 @@ we.Event.prototype = {
 we.events = new we.Event();
 
 we.admin = {};
-we.admin.layouts = {
-  widgetTableSorter: function widgetTableSorter (selector, regionName) {
-    if (!selector) selector = '.sorted_table > tbody';
-
-    var sortableList = $(selector);
-    // Sortable rows
-    sortableList.sortable({
-      update: function updateSort() {
-        saveOrder(this);
-      }
-    });
-    function saveOrder(tbody) {
-      var widgets = [];
-      var list = $(tbody).children('tr');
-
-      for (var i = 0; i < list.length; i++) {
-        widgets.push({
-          id: $(list[i]).attr('model-id'), weight: i
-        });
-
-        $(list[i]).attr('data-weight', i);
-      }
-
-      $.ajax({
-        headers: { 'we-widget-action': 'updateSort' },
-        url: location.pathname+'?responseType=json',
-        method: 'POST',
-        // dataType: 'json',
-        // contentType: 'application/json; charset=utf-8',
-        data: {
-          params: JSON.stringify({
-            regionName: regionName,
-            layout: $('#we-layout').attr('data-we-layout')
-          }),
-          widgets: JSON.stringify(widgets)
-        }
-      }).done(function (r) {
-        var region = $('#region-'+regionName);
-        var widget;
-        var lastWidget = null;
-        for (var i = 0; i < r.widget.length; i++) {
-          widget = region.find('#widget-'+r.widget[i].id);
-          if (lastWidget) {
-            widget.insertAfter(lastWidget);
-          } else {
-            region.find('widgets').prepend(widget);
-          }
-          lastWidget = widget;
-        }
-      });
-    }
-  }
-}
 we.admin.permission = {
   liveUpdate: function(selector) {
     $(selector).on('change', 'input[type="checkbox"]', function() {
@@ -52963,7 +52679,7 @@ $(function(){
   if(we.autoInitialize) we.initialize();
 });
 
-})(window);
+})();
 /**
  * Add form client side logic
  */
@@ -53359,6 +53075,295 @@ window.we.components.editor = {
     element.summernote(cfg);
   }
 };
+(function (we) {
+
+  if (we.config.widgetContext) {
+    // add current page headers for ajax requests
+    $.ajaxSetup({
+      headers: {
+        'wejs-context': this.config.widgetContext,
+        'wejs-theme': this.config.theme
+      }
+    });
+  }
+
+  we.structure = {
+    addWidgetModalFormId: '#AddWidgetFormModal',
+    updateWidgetModalFormId: '#updateWidgetFormModal',
+    sortWidgetModalFormId: '#sortWidgetFormModal',
+
+    showLayoutEditor: function showLayoutEditor() {
+      $('#we-layout-start-edit-btn').hide();
+      $('#we-layout-stop-edit-btn').show();
+      $('body').addClass('we-editing-layout');
+    },
+    hideLayoutEditor: function hideLayoutEditor() {
+      $('#we-layout-start-edit-btn').show();
+      $('#we-layout-stop-edit-btn').hide();
+      $('body').removeClass('we-editing-layout');
+    },
+    regions: {},
+
+    newWidgetObj: {},
+    setForDataValuesWithVisibility: function(formData) {
+      switch(formData.visibility) {
+        case 'in-page':
+          if (we.config.modelName && we.config.modelId) {
+            formData.modelName = we.config.modelName;
+            formData.modelId = we.config.modelId;
+          } else {
+            formData.path = location.pathname;
+          }
+          break;
+        case 'in-session':
+          formData.modelName = we.config.modelName;
+          formData.modelId = null;
+          break;
+        case 'in-session-record':
+          formData.modelName = we.config.modelName;
+          formData.modelId = null;
+          formData.inRecord = true;
+          break;
+        default:
+          formData.modelName = null;
+          formData.modelId = null;
+      }
+    },
+    openAddWidgetForm: function openAddWidgetForm(regionName) {
+      var modal = $(we.structure.addWidgetModalFormId);
+      if (!modal) throw new Error('Add widget modal not found!', we.structure.addWidgetModalFormId);
+
+      this.newWidgetObj = {
+        theme: we.config.theme,
+        layout: $('#we-layout').attr('data-we-layout'),
+        type: '',
+        regionName: regionName,
+        context: $('#we-layout').attr('data-we-widgetcontext')
+      };
+
+      $.ajax({
+        headers: { 'we-widget-action': 'getWidgetTypes' },
+        url: location.pathname,
+        method: 'POST',
+        data: {}
+      }).then(function afterGetWidgetTypes(r) {
+        $('#AddWidgetFormModal-select-type').select2({
+          data: r.widget.map(function (w){
+            return {
+              id : w.type,
+              text: w.label+' ('+w.type+')'
+            };
+          })
+        });
+      });
+
+      modal.find('.steps-body .step1').show();
+      modal.find('.steps-body .step2').hide();
+
+      modal.modal('show');
+    },
+    goToStep1: function goToStep1() {
+      var modal = $(we.structure.addWidgetModalFormId);
+      modal.find('.steps-body .step1').show();
+    },
+    goToStep2: function goToStep2() {
+      var self = this;
+
+      var modal = $(we.structure.addWidgetModalFormId);
+      var regionWidgetsTag = $('#region-'+ this.newWidgetObj.regionName +'-widgets');
+
+      this.newWidgetObj.type = $('#AddWidgetFormModal-select-type').val();
+      // type is required for step 2
+      if (!this.newWidgetObj.type) return;
+
+      modal.find('.steps-body .step1').hide();
+      modal.find('.steps-body .step2').show();
+
+      var url = '/api/v1/widget-form/'+this.newWidgetObj.theme;
+      url += '/' + this.newWidgetObj.layout;
+      url += '/' + this.newWidgetObj.type;
+      url += '?regionName=' + this.newWidgetObj.regionName;
+
+      if (we.config.widgetContext)
+        url += '&context=' + we.config.widgetContext;
+
+      $.get(url).then(function (f) {
+        modal.find('.steps-body .step2').html(f);
+        modal.modal('show');
+
+        modal.find('form').submit(function( event ) {
+          event.preventDefault();
+          var formData = {};
+
+          modal.find('form').serializeArray().forEach(function (d) {
+            formData[d.name] = d.value;
+          });
+
+          we.structure.setForDataValuesWithVisibility(formData);
+
+          formData.theme = self.newWidgetObj.theme;
+          formData.regionName = self.newWidgetObj.regionName;
+          formData.context = we.config.widgetContext;
+
+          $.ajax({
+            headers: {
+              'we-widget-action': 'add'
+            },
+            url: location.pathname,
+            method: 'POST',
+            data: {
+              widget: JSON.stringify(formData)
+            }
+          }).then(function (html) {
+            // insert after regions actions
+            regionWidgetsTag.prepend(html);
+          }).always(function() {
+            modal.modal('hide');
+          });
+        });
+      });
+    },
+    updateWidget: function updateWidget(id) {
+      var modalForm = $(this.updateWidgetModalFormId);
+
+      if (!id) return console.warn('data-id attribute is required for updateWidget');
+
+      var widgetTag = $('#widget-'+id);
+      modalForm.modal('show');
+
+      var url = location.pathname;
+
+      $.ajax({
+        headers: { 'we-widget-action': 'getUpdateForm' },
+        url: url,
+        method: 'POST',
+        data: {
+          widget: JSON.stringify({ id: id })
+        }
+      }).then(function (f) {
+        modalForm.find('.modal-body').html(f);
+
+        modalForm.find('form').submit(function( event ) {
+          event.preventDefault();
+          var formData = { id: id };
+
+          modalForm.find('form').serializeArray().forEach(function (d) {
+            formData[d.name] = d.value;
+          });
+
+          we.structure.setForDataValuesWithVisibility(formData);
+
+          $.ajax({
+            headers: { 'we-widget-action': 'update' },
+            url: url,
+            method: 'POST',
+            data: {
+              widget: JSON.stringify(formData)
+            }
+          }).then(function (html) {
+            widgetTag.after(html);
+            widgetTag.remove();
+          }).always(function(){
+            modalForm.modal('hide');
+          });
+        });
+      });
+    },
+    deleteWidget: function deleteWidget(id) {
+      if (!id) return console.warn('data-id attribute is required for deleteWidget');
+
+      if (confirm(we.config.structure.deleteWidgetConfirm)) {
+        $.ajax({
+          headers: { 'we-widget-action': 'delete' },
+          url: location.pathname+'?responseType=json',
+          method: 'POST',
+          data: {
+            widgetId: id
+          }
+        }).then(function (r) {
+          we.events.emit('model-update-after', 'widget', r);
+          $('#widget-'+id).remove();
+        });
+      }
+    },
+
+    sortRegionWidgetsForm: function sortRegionWidgetsForm(regionName) {
+      var modal = $(we.structure.sortWidgetModalFormId);
+      if (!modal) throw new Error('sort widget modal not found!', we.structure.sortWidgetModalFormId);
+     modal.modal('show');
+
+      var url = location.pathname;
+
+      $.ajax({
+        headers: { 'we-widget-action': 'getWidgetsToSort' },
+        url: url+'?responseType=modal&skipHTML=true',
+        method: 'POST',
+        data: {
+          params: JSON.stringify({
+            regionName: regionName
+          })
+        }
+      }).then(function (f) {
+        modal.find('.modal-body').html(f);
+      });
+    }
+  };
+
+  we.admin.layouts = {
+    widgetTableSorter: function widgetTableSorter (selector, regionName) {
+      if (!selector) selector = '.sorted_table > tbody';
+
+      var sortableList = $(selector);
+      // Sortable rows
+      sortableList.sortable({
+        update: function updateSort() {
+          saveOrder(this);
+        }
+      });
+      function saveOrder(tbody) {
+        var widgets = [];
+        var list = $(tbody).children('tr');
+
+        for (var i = 0; i < list.length; i++) {
+          widgets.push({
+            id: $(list[i]).attr('model-id'), weight: i
+          });
+
+          $(list[i]).attr('data-weight', i);
+        }
+
+        $.ajax({
+          headers: { 'we-widget-action': 'updateSort' },
+          url: location.pathname+'?responseType=json',
+          method: 'POST',
+          // dataType: 'json',
+          // contentType: 'application/json; charset=utf-8',
+          data: {
+            params: JSON.stringify({
+              regionName: regionName,
+              layout: $('#we-layout').attr('data-we-layout')
+            }),
+            widgets: JSON.stringify(widgets)
+          }
+        }).done(function (r) {
+          var region = $('#region-'+regionName);
+          var widget;
+          var lastWidget = null;
+          for (var i = 0; i < r.widget.length; i++) {
+            widget = region.find('#widget-'+r.widget[i].id);
+            if (lastWidget) {
+              widget.insertAfter(lastWidget);
+            } else {
+              region.find('widgets').prepend(widget);
+            }
+            lastWidget = widget;
+          }
+        });
+      }
+    }
+  };
+
+})(window.we);
 /*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
 (function(r,G,f,v){var J=f("html"),n=f(r),p=f(G),b=f.fancybox=function(){b.open.apply(this,arguments)},I=navigator.userAgent.match(/msie/i),B=null,s=G.createTouch!==v,t=function(a){return a&&a.hasOwnProperty&&a instanceof f},q=function(a){return a&&"string"===f.type(a)},E=function(a){return q(a)&&0<a.indexOf("%")},l=function(a,d){var e=parseInt(a,10)||0;d&&E(a)&&(e*=b.getViewport()[d]/100);return Math.ceil(e)},w=function(a,b){return l(a,b)+"px"};f.extend(b,{version:"2.1.5",defaults:{padding:15,margin:20,
 width:800,height:600,minWidth:100,minHeight:100,maxWidth:9999,maxHeight:9999,pixelRatio:1,autoSize:!0,autoHeight:!1,autoWidth:!1,autoResize:!0,autoCenter:!s,fitToView:!0,aspectRatio:!1,topRatio:0.5,leftRatio:0.5,scrolling:"auto",wrapCSS:"",arrows:!0,closeBtn:!0,closeClick:!1,nextClick:!1,mouseWheel:!0,autoPlay:!1,playSpeed:3E3,preload:3,modal:!1,loop:!0,ajax:{dataType:"html",headers:{"X-fancyBox":!0}},iframe:{scrolling:"auto",preload:!0},swf:{wmode:"transparent",allowfullscreen:"true",allowscriptaccess:"always"},
