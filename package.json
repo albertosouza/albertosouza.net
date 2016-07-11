@@ -16,15 +16,15 @@
   "dependencies": {
     "express-mysql-session": "^1.1.1",
     "mysql": "^2.11.1",
-    "we-core": "^1.8.5",
-    "we-plugin-acl": "^1.2.4",
+    "we-core": "^1.8.6",
+    "we-plugin-acl": "^1.2.6",
     "we-plugin-article": "^1.0.0",
     "we-plugin-auth": "^1.1.3",
     "we-plugin-bootstrap3": "1.0.0",
     "we-plugin-disqus": "1.1.1",
     "we-plugin-editor-summernote": "^1.1.0",
-    "we-plugin-file": "^1.3.4",
-    "we-plugin-form": "^1.1.0",
+    "we-plugin-file": "^1.3.5",
+    "we-plugin-form": "^1.1.1",
     "we-plugin-google-analytics": "1.1.0",
     "we-plugin-menu": "^1.3.0",
     "we-plugin-portfolio": "1.0.0",
@@ -32,11 +32,11 @@
     "we-plugin-url-alias": "^1.1.0",
     "we-plugin-user": "^1.1.0",
     "we-plugin-view": "^1.1.1",
-    "we-plugin-vocabulary": "1.1.0",
-    "we-plugin-widget": "~1.1.0",
+    "we-plugin-vocabulary": "1.1.1",
+    "we-plugin-widget": "~1.1.1",
     "we-theme-admin-default": "^1.0.1",
     "we-theme-blog-startbootstrap-clean": "^1.0.2",
-    "we-plugin-file-local": "^1.1.1"
+    "we-plugin-file-local": "^1.1.2"
   },
   "devDependencies": {
     "gulp": "3.9.1",
@@ -44,7 +44,7 @@
     "sinon": "1.17.4",
     "supertest": "^1.2.0",
     "we-gulp-tasks-default": "1.1.0",
-    "we-test-tools": "^0.3.17"
+    "we-test-tools": "^0.3.18"
   },
   "wejs": {
     "plugins": {
