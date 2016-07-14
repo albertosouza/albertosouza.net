@@ -28,6 +28,7 @@ module.exports = {
           we.log.info('New User with id: ', user.id);
           // set the password
           user.updatePassword(user1.password , done);
+          return null
         });
       },
       // function setDefaultRolePermissions(done) {
@@ -40,10 +41,11 @@ module.exports = {
             we.db.models.menu.create({
               name: 'main',
               class: 'nav navbar-nav'
-            }).then(function (r){
+            })
+            .then(function (r){
               we.log.info('New menu with name: '+r.name+' and id: '+r.id);
               // then create menu links
-              we.db.models.link.bulkCreate([
+              return we.db.models.link.bulkCreate([
                 {
                   href: '/',
                   text: 'Home',
@@ -67,19 +69,23 @@ module.exports = {
                   title: 'Google plus',
                   menuId: r.id
                 }
-              ]).then(function(){
-                done();
-              }).catch(done);
-            }).catch(done);
+              ])
+              .then(function(){
+                done()
+                return null
+              })
+            })
+            .catch(done);
           },
           function createSocialMenu(done) {
             we.db.models.menu.create({
               name: 'social',
               class: 'list-inline text-center'
-            }).then(function (r) {
+            })
+            .then(function (r) {
               we.log.info('New menu with name: '+r.name+' and id: '+r.id);
               // then create menu links
-              we.db.models.link.bulkCreate([
+              return we.db.models.link.bulkCreate([
                 {
                   href: '#',
                   text: '<i class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></i>',
@@ -98,10 +104,13 @@ module.exports = {
                   title: 'Github',
                   menuId: r.id
                 }
-              ]).then(function(){
-                done();
-              }).catch(done);
-            }).catch(done);
+              ])
+              .then(function() {
+                done()
+                return null
+              })
+            })
+            .catch(done)
           }
         ], done);
       }
