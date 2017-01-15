@@ -38,6 +38,7 @@
   "auth.login.wrong.email.or.password": "Seu email ou senhas estão incorretos ou você não está registrado no sistema",
   "auth.new-password": "Nova senha",
   "auth.new-password.set.successfully": "A sua senha foi atualizada com sucesso",
+  "auth.newPassword.and.password.diferent": "Os campos senha e repetir senha estão diferentes.",
   "auth.register.acceptTerms.required": "Você deve aceitar os nossos termos para criar uma conta no sistema",
   "auth.register.require.email.activation": "A sua conta de usuário foi criada mas você deve validar o seu email clicando no link de enviamos para a conta de email informada no registro",
   "auth.register.spam": "O seu email {{email}} está marcado como spam pelo Google Recaptcha.",

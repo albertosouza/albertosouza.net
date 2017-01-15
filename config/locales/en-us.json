@@ -36,6 +36,7 @@
   "auth.login.wrong.email.or.password": "Your email or password is wrong or you dont are registered in this system",
   "auth.new-password": "New password",
   "auth.new-password.set.successfully": "Your password has been successfully updated",
+  "auth.newPassword.and.password.diferent": "Password and repeat the password fields are diferent",
   "auth.register.acceptTerms.required": "You need to accept your terms to create account",
   "auth.register.require.email.activation": "We send an account validation email to the email account you entered with how to validate your account",
   "auth.register.spam": "You email {{email}} is marked as span by Google Recaptcha",
