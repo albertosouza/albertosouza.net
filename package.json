@@ -10,7 +10,8 @@
     "deps": "npm install && bower install",
     "start": "PORT=4000 node app.js",
     "build": "gulp build && we loadLocales",
-    "test": "./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js"
+    "test": "./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js",
+    "deploy": "git push prod master:prod"
   },
   "dependencies": {
     "express-mysql-session": "^1.2.0",
