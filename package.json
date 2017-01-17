@@ -11,7 +11,7 @@
     "start": "PORT=4000 node app.js",
     "build": "gulp build && we loadLocales",
     "test": "./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js",
-    "deploy": "npm run build && git add . && git commit -m 'update build' && npm version patch && git push prod master:prod"
+    "deploy": "npm run build && git add . && git commit -m 'update build' && npm version patch && git push prod master:master && git push prod master:prod"
   },
   "dependencies": {
     "express-mysql-session": "^1.2.0",
