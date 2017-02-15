@@ -36,7 +36,10 @@
     "we-plugin-widget": "~1.1.1",
     "we-theme-admin-default": "^1.0.1",
     "we-theme-blog-startbootstrap-clean": "^1.0.2",
-    "we-plugin-file-local": "^1.1.2"
+    "we-plugin-file-local": "^1.1.2",
+    "we-plugin-user-settings": "^1.0.0",
+    "we-passport-oauth2-password": "^1.0.5",
+    "we-plugin-i18n-api": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "3.9.1",
@@ -48,6 +51,7 @@
   },
   "wejs": {
     "plugins": {
+      "we-admin-blog": true,
       "we-plugin-acl": true,
       "we-plugin-article": true,
       "we-plugin-auth": true,
@@ -65,7 +69,10 @@
       "we-plugin-view": true,
       "we-plugin-vocabulary": true,
       "we-plugin-widget": true,
-      "we-plugin-file-local": true
+      "we-plugin-file-local": true,
+      "we-plugin-user-settings": true,
+      "we-passport-oauth2-password": true,
+      "we-plugin-i18n-api": true
     },
     "devPlugins": {}
   }
