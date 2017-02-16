@@ -1,6 +1,13 @@
 {
+  "image.Add": "Add image",
+  "models.table.restore.table.summary": "Show %@ - %@ of %@",
+  "article.creator": "Creator",
+  "article.Save": "Save",
+  "article.edit": "Edit article '{{title}}'",
+  "Actions": "Actions",
   "Delete": "Delete",
   "Edit": "Edit",
+  "Cancel": "Cancel",
   "Home": "Home",
   "Login": "Login",
   "Logout": "Logout",
