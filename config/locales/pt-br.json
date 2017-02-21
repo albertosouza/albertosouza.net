@@ -4,6 +4,10 @@
   "article.form.terms.Dates": "Datas",
   "article.form.terms.Images": "Imagens",
   "article.form.terms.Data": "Dados",
+  "auth.Password-and-login": "Senha e login",
+  "user.Data": "Dados de perfil",
+  "user.edit": "Perfil do {{username}}",
+  "user.create": "Registrar usuário",
   "admin.dashboard.article.unpublished": "Artigos despublicados",
   "View": "Ver",
   "user.newest": "Novos usuários",
@@ -224,6 +228,7 @@
   "form-term-createdAt": "Criado em",
   "form-urlAlias-alias": "URL de acesso",
   "form-urlAlias-target": "Url original",
+  "form-urlAlias-createdAt": "Criado em",
   "form-user-avatar": "Avatar",
   "form-user-banner": "Banner do perfil",
   "form-user-biography": "Sobre",
@@ -323,5 +328,7 @@
   "form-helper-menu-class": " ",
   "form-helper-menu-name": " ",
   "link.create": "Criar link",
-  "link.Save-sort": "Salvar ordem"
+  "link.Save-sort": "Salvar ordem",
+  "form-role-name": "Nome",
+  "form-placeholder-role-name": "Digite o nome do novo role aqui..."
 }
