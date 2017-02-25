@@ -39,7 +39,6 @@
     "we-plugin-view": "^1.1.4",
     "we-plugin-vocabulary": "1.1.2",
     "we-plugin-widget": "~1.1.1",
-    "we-theme-admin-default": "^1.0.1",
     "we-theme-blog-startbootstrap-clean": "^1.0.2"
   },
   "devDependencies": {
