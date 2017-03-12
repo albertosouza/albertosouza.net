@@ -54,6 +54,7 @@ function setDefaultMetatagsForAllRoutes() {
   '<meta name="twitter:site" content="@albertosouza_js">'+
   '<meta name="twitter:creator" content="@albertosouza_js">'+
   // Facebook
+  '<meta property="fb:app_id" content="469050989784203" />'+
   '<meta property="fb:admins" content="100001859791004" />';
 }
 
