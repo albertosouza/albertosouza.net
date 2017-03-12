@@ -68,7 +68,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       model: 'article',
       action: 'find',
       template: 'article/find',
-      title: 'Alberto Souza',
+      title: 'Site do Alberto Souza',
       /**
        * Home metadata tag handler
        */
