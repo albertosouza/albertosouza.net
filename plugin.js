@@ -23,7 +23,7 @@ function setHomeMetadaTagCache (req) {
       'content="Node.js,JavaScript,IoT,Beacon,Internet das Coisas,desenvolvimento de sistemas,Alberto Souza">'+
     // OG tags:
     '<meta property="og:url" content="'+hostname+'" />'+
-    '<meta property="og:title" content="Página inicial com os ultimos conteúdos." />' +
+    '<meta property="og:title" content="Site do Alberto Souza" />' +
     '<meta property="og:description" '+
       'content="'+description+'" />'+
     '<meta property="og:type" content="site" />'+
