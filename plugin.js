@@ -26,7 +26,7 @@ function setHomeMetadaTagCache (req) {
     '<meta property="og:title" content="Site do Alberto Souza" />' +
     '<meta property="og:description" '+
       'content="'+description+'" />'+
-    '<meta property="og:type" content="site" />'+
+    '<meta property="og:type" content="website" />'+
     // Schema.org markup for Google+
     '<meta itemprop="name" content="Site de Alberto Souza">'+
     '<meta itemprop="description" content="'+description+'">'+
