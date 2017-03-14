@@ -39,7 +39,8 @@
     "we-plugin-view": "^1.1.4",
     "we-plugin-vocabulary": "1.2.1",
     "we-plugin-widget": "~1.1.1",
-    "we-theme-blog-startbootstrap-clean": "^1.0.2"
+    "we-theme-blog-startbootstrap-clean": "^1.0.2",
+    "we-plugin-email": "^1.1.2"
   },
   "devDependencies": {
     "gulp": "3.9.1",
@@ -72,7 +73,8 @@
       "we-plugin-file-local": true,
       "we-plugin-user-settings": true,
       "we-passport-oauth2-password": true,
-      "we-plugin-i18n-api": true
+      "we-plugin-i18n-api": true,
+      "we-plugin-email": true
     },
     "devPlugins": {}
   }
