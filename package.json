@@ -17,7 +17,7 @@
     "express-mysql-session": "^1.2.0",
     "mysql": "^2.13.0",
     "we-admin-blog": "^1.1.0",
-    "we-core": "^1.12.3",
+    "we-core": "^1.12.4",
     "we-passport-oauth2-password": "^1.1.0",
     "we-plugin-acl": "^1.2.9",
     "we-plugin-article": "^1.0.1",
