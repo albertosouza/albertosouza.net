@@ -1,0 +1,4401 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.1.17",
+    "title": "Site do Alberto Souza",
+    "description": null
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "text/html",
+    "application/json",
+    "application/vnd.api+json",
+    "html",
+    "application/rss+xml",
+    "rss"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acl/role": {
+      "post": {
+        "tags": [
+          "role"
+        ],
+        "operationId": "post::/acl/role",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "body",
+            "description": "find role",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/role"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "role"
+        ],
+        "operationId": "get::/acl/role",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/role"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acl/role/{roleName}/permissions/{permissionName}": {
+      "delete": {
+        "tags": [
+          "role"
+        ],
+        "operationId": "delete::/acl/role/{roleName}/permissions/{permissionName}",
+        "parameters": [
+          {
+            "name": "roleName",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "permissionName",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "role"
+        ],
+        "operationId": "post::/acl/role/{roleName}/permissions/{permissionName}",
+        "parameters": [
+          {
+            "name": "roleName",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "permissionName",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "role",
+            "in": "body",
+            "description": "addPermissionToRole role",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/role"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acl/permission": {
+      "get": {
+        "tags": [
+          "permission"
+        ],
+        "operationId": "get::/acl/permission",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acl/user/{userId}/roles": {
+      "post": {
+        "tags": [
+          "role"
+        ],
+        "operationId": "post::/acl/user/{userId}/roles",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "description": "updateUserRoles user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "role"
+        ],
+        "operationId": "get::/acl/user/{userId}/roles",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/{id}/new-password": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/auth/{id}/new-password",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/auth/{id}/new-password",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/auth-token": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/auth/auth-token",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/{id}/activate/{token}": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/user/{id}/activate/{token}",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/change-password": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/auth/change-password",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/auth/change-password",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/check-if-can-reset-password": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/api/v1/auth/check-if-can-reset-password",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/{id}/reset-password/{token}": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/auth/{id}/reset-password/{token}",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/auth/forgot-password",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/auth/forgot-password",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/auth/logout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/auth/login",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/login",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/login",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/signup": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "post::/signup",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/signup",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/account": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "get::/account",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/file/{name}": {
+      "delete": {
+        "tags": [
+          "file"
+        ],
+        "operationId": "delete::/api/v1/file/{name}",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/{type}/get-form-modal-content": {
+      "get": {
+        "tags": [
+          "file"
+        ],
+        "operationId": "get::/api/v1/{type}/get-form-modal-content",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/file"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/{userId}/image": {
+      "get": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "get::/user/{userId}/image",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/image"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/file": {
+      "post": {
+        "tags": [
+          "file"
+        ],
+        "operationId": "post::/api/v1/file",
+        "parameters": [
+          {
+            "name": "file",
+            "in": "body",
+            "description": "create file",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/file"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/file"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/file-download/{name}": {
+      "get": {
+        "tags": [
+          "file"
+        ],
+        "operationId": "get::/api/v1/file-download/{name}",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/file"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/file/{id}": {
+      "get": {
+        "tags": [
+          "file"
+        ],
+        "operationId": "get::/api/v1/file/{id}",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/file"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/image/{name}": {
+      "delete": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "delete::/api/v1/image/{name}",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "get::/api/v1/image/{name}",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/image"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/image": {
+      "post": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "post::/api/v1/image",
+        "parameters": [
+          {
+            "name": "image",
+            "in": "body",
+            "description": "create image",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/image"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/image"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "get::/api/v1/image",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/image"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/image/{id}/data": {
+      "get": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "get::/api/v1/image/{id}/data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/image"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/image/{style}/{name}": {
+      "get": {
+        "tags": [
+          "image"
+        ],
+        "operationId": "get::/api/v1/image/{style}/{name}",
+        "parameters": [
+          {
+            "name": "style",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/image"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/{id}/avatar": {
+      "post": {
+        "tags": [
+          "avatar"
+        ],
+        "operationId": "post::/api/v1/user/{id}/avatar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "description": "changeAvatar user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/avatar/{id}": {
+      "get": {
+        "tags": [
+          "avatar"
+        ],
+        "operationId": "get::/avatar/{id}",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/{userId}/edit/privacity": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "post::/user/{userId}/edit/privacity",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "userPrivacity",
+            "in": "body",
+            "description": "findUserPrivacity userPrivacity",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userPrivacity"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user/{userId}/edit/privacity",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/userPrivacity"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/tag-clound": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/tag-clound",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/term-texts": {
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/api/v1/term-texts",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/widget-form/{theme}/{layout}/{type}": {
+      "get": {
+        "tags": [
+          "widget"
+        ],
+        "operationId": "get::/api/v1/widget-form/{theme}/{layout}/{type}",
+        "parameters": [
+          {
+            "name": "theme",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "layout",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/widget"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user-settings": {
+      "get": {
+        "tags": [
+          "user-settings"
+        ],
+        "operationId": "get::/user-settings",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/grant-password/authenticate": {
+      "post": {
+        "tags": [
+          "passwordOauth2GrantStrategy"
+        ],
+        "operationId": "post::/auth/grant-password/authenticate",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/i18n/get-all-locales": {
+      "get": {
+        "tags": [
+          "i18n-api"
+        ],
+        "operationId": "get::/i18n/get-all-locales",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/article": {
+      "post": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "post::/article",
+        "parameters": [
+          {
+            "name": "article",
+            "in": "body",
+            "description": "create article",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/article",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/article/{articleId}": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/article/{articleId}",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "put::/article/{articleId}",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "article",
+            "in": "body",
+            "description": "edit article",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "delete::/article/{articleId}",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/article/count": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/article/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/article/create": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/article/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "post::/article/create",
+        "parameters": [
+          {
+            "name": "article",
+            "in": "body",
+            "description": "create article",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/article/{articleId}/edit": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/article/{articleId}/edit",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "post::/article/{articleId}/edit",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "article",
+            "in": "body",
+            "description": "edit article",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/article/{articleId}/delete": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "get::/article/{articleId}/delete",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "article"
+        ],
+        "operationId": "post::/article/{articleId}/delete",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "article",
+            "in": "body",
+            "description": "delete article",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menu": {
+      "post": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "post::/menu",
+        "parameters": [
+          {
+            "name": "menu",
+            "in": "body",
+            "description": "create menu",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "get::/menu",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/menu"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menu/{menuId}": {
+      "get": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "get::/menu/{menuId}",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/menu"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "put::/menu/{menuId}",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "menu",
+            "in": "body",
+            "description": "edit menu",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "delete::/menu/{menuId}",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menu/count": {
+      "get": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "get::/menu/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/menu"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menu/create": {
+      "get": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "get::/menu/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/menu"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "post::/menu/create",
+        "parameters": [
+          {
+            "name": "menu",
+            "in": "body",
+            "description": "create menu",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menu/{menuId}/edit": {
+      "get": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "get::/menu/{menuId}/edit",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/menu"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "post::/menu/{menuId}/edit",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "menu",
+            "in": "body",
+            "description": "edit menu",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/menu/{menuId}/delete": {
+      "get": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "get::/menu/{menuId}/delete",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/menu"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "menu"
+        ],
+        "operationId": "post::/menu/{menuId}/delete",
+        "parameters": [
+          {
+            "name": "menuId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "menu",
+            "in": "body",
+            "description": "delete menu",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/menu"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/link": {
+      "post": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "post::/link",
+        "parameters": [
+          {
+            "name": "link",
+            "in": "body",
+            "description": "create link",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "get::/link",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/link/{linkId}": {
+      "get": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "get::/link/{linkId}",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "put::/link/{linkId}",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "link",
+            "in": "body",
+            "description": "edit link",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "delete::/link/{linkId}",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/link/count": {
+      "get": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "get::/link/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/link/create": {
+      "get": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "get::/link/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "post::/link/create",
+        "parameters": [
+          {
+            "name": "link",
+            "in": "body",
+            "description": "create link",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/link/{linkId}/edit": {
+      "get": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "get::/link/{linkId}/edit",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "post::/link/{linkId}/edit",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "link",
+            "in": "body",
+            "description": "edit link",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/link/{linkId}/delete": {
+      "get": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "get::/link/{linkId}/delete",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "link"
+        ],
+        "operationId": "post::/link/{linkId}/delete",
+        "parameters": [
+          {
+            "name": "linkId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "link",
+            "in": "body",
+            "description": "delete link",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/link"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/url-alia": {
+      "post": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "post::/url-alia",
+        "parameters": [
+          {
+            "name": "url-alia",
+            "in": "body",
+            "description": "create url-alia",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "get::/url-alia",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/url-alia"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/url-alia/{urlAliaId}": {
+      "get": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "get::/url-alia/{urlAliaId}",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/url-alia"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "put::/url-alia/{urlAliaId}",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "url-alia",
+            "in": "body",
+            "description": "edit url-alia",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "delete::/url-alia/{urlAliaId}",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/url-alia/count": {
+      "get": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "get::/url-alia/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/url-alia"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/url-alia/create": {
+      "get": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "get::/url-alia/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/url-alia"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "post::/url-alia/create",
+        "parameters": [
+          {
+            "name": "url-alia",
+            "in": "body",
+            "description": "create url-alia",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/url-alia/{urlAliaId}/edit": {
+      "get": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "get::/url-alia/{urlAliaId}/edit",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/url-alia"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "post::/url-alia/{urlAliaId}/edit",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "url-alia",
+            "in": "body",
+            "description": "edit url-alia",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/url-alia/{urlAliaId}/delete": {
+      "get": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "get::/url-alia/{urlAliaId}/delete",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/url-alia"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "url-alia"
+        ],
+        "operationId": "post::/url-alia/{urlAliaId}/delete",
+        "parameters": [
+          {
+            "name": "urlAliaId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "url-alia",
+            "in": "body",
+            "description": "delete url-alia",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/url-alia"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "post::/user",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "create user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/{userId}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "put::/user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "description": "edit user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "delete::/user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/count": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/create": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "post::/user/create",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "create user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/{userId}/edit": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user/{userId}/edit",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "post::/user/{userId}/edit",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "description": "edit user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/user/{userId}/delete": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "get::/user/{userId}/delete",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "post::/user/{userId}/delete",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "description": "delete user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary": {
+      "post": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "post::/vocabulary",
+        "parameters": [
+          {
+            "name": "vocabulary",
+            "in": "body",
+            "description": "create vocabulary",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/vocabulary"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/vocabulary"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "put::/vocabulary/{vocabularyId}",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "vocabulary",
+            "in": "body",
+            "description": "edit vocabulary",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "delete::/vocabulary/{vocabularyId}",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/count": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/vocabulary"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/create": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/vocabulary"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "post::/vocabulary/create",
+        "parameters": [
+          {
+            "name": "vocabulary",
+            "in": "body",
+            "description": "create vocabulary",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/edit": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/edit",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/vocabulary"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "post::/vocabulary/{vocabularyId}/edit",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "vocabulary",
+            "in": "body",
+            "description": "edit vocabulary",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/delete": {
+      "get": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/delete",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/vocabulary"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "vocabulary"
+        ],
+        "operationId": "post::/vocabulary/{vocabularyId}/delete",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "vocabulary",
+            "in": "body",
+            "description": "delete vocabulary",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/vocabulary"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/term": {
+      "post": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "post::/vocabulary/{vocabularyId}/term",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "term",
+            "in": "body",
+            "description": "create term",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/term",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/term/{termId}": {
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/term/{termId}",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "put::/vocabulary/{vocabularyId}/term/{termId}",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "term",
+            "in": "body",
+            "description": "edit term",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "delete::/vocabulary/{vocabularyId}/term/{termId}",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/term/count": {
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/term/count",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/term/create": {
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/term/create",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "post::/vocabulary/{vocabularyId}/term/create",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "term",
+            "in": "body",
+            "description": "create term",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/term/{termId}/edit": {
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/term/{termId}/edit",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "post::/vocabulary/{vocabularyId}/term/{termId}/edit",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "term",
+            "in": "body",
+            "description": "edit term",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vocabulary/{vocabularyId}/term/{termId}/delete": {
+      "get": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "get::/vocabulary/{vocabularyId}/term/{termId}/delete",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/term"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "term"
+        ],
+        "operationId": "post::/vocabulary/{vocabularyId}/term/{termId}/delete",
+        "parameters": [
+          {
+            "name": "vocabularyId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "termId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "term",
+            "in": "body",
+            "description": "delete term",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/term"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/portfolio": {
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "post::/portfolio",
+        "parameters": [
+          {
+            "name": "portfolio",
+            "in": "body",
+            "description": "create portfolio",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "get::/portfolio",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/portfolio"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/portfolio/{portfolioId}": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "get::/portfolio/{portfolioId}",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/portfolio"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "put::/portfolio/{portfolioId}",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "portfolio",
+            "in": "body",
+            "description": "edit portfolio",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "delete::/portfolio/{portfolioId}",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/portfolio/count": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "get::/portfolio/count",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/portfolio"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/portfolio/create": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "get::/portfolio/create",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/portfolio"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "post::/portfolio/create",
+        "parameters": [
+          {
+            "name": "portfolio",
+            "in": "body",
+            "description": "create portfolio",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/portfolio/{portfolioId}/edit": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "get::/portfolio/{portfolioId}/edit",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/portfolio"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "post::/portfolio/{portfolioId}/edit",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "portfolio",
+            "in": "body",
+            "description": "edit portfolio",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/portfolio/{portfolioId}/delete": {
+      "get": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "get::/portfolio/{portfolioId}/delete",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/portfolio"
+              }
+            }
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "portfolio"
+        ],
+        "operationId": "post::/portfolio/{portfolioId}/delete",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "portfolio",
+            "in": "body",
+            "description": "delete portfolio",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/portfolio"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/swagger": {
+      "x-swagger-pipe": "swagger_raw"
+    }
+  },
+  "definitions": {
+    "article": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "number"
+        },
+        "published": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "about": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "setAlias": {
+          "type": "boolean"
+        }
+      }
+    },
+    "accesstoken": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "number"
+        },
+        "providerUserId": {
+          "type": "string"
+        },
+        "tokenProviderId": {
+          "type": "string"
+        },
+        "tokenType": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "isValid": {
+          "type": "number"
+        }
+      }
+    },
+    "authtoken": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "number"
+        },
+        "providerUserId": {
+          "type": "number"
+        },
+        "tokenProviderId": {
+          "type": "string"
+        },
+        "tokenType": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "isValid": {
+          "type": "number"
+        },
+        "redirectUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "passport": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string"
+        },
+        "accessToken": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "string"
+        }
+      }
+    },
+    "password": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "number"
+        },
+        "active": {
+          "type": "number"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "file": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "encoding": {
+          "type": "string"
+        },
+        "active": {
+          "type": "number"
+        },
+        "originalname": {
+          "type": "string"
+        },
+        "mime": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        },
+        "storageName": {
+          "type": "string"
+        },
+        "isLocalStorage": {
+          "type": "number"
+        },
+        "urls": {
+          "type": "boolean"
+        },
+        "extraData": {
+          "type": "boolean"
+        }
+      }
+    },
+    "fileassoc": {
+      "type": "object",
+      "properties": {
+        "modelName": {
+          "type": "string"
+        },
+        "modelId": {
+          "type": "number"
+        },
+        "field": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "encoding": {
+          "type": "string"
+        },
+        "active": {
+          "type": "number"
+        },
+        "originalname": {
+          "type": "string"
+        },
+        "mime": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        },
+        "storageName": {
+          "type": "string"
+        },
+        "isLocalStorage": {
+          "type": "number"
+        },
+        "urls": {
+          "type": "boolean"
+        },
+        "extraData": {
+          "type": "boolean"
+        }
+      }
+    },
+    "imageassoc": {
+      "type": "object",
+      "properties": {
+        "modelName": {
+          "type": "string"
+        },
+        "modelId": {
+          "type": "number"
+        },
+        "field": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "depth": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "number"
+        },
+        "parent": {
+          "type": "number"
+        }
+      }
+    },
+    "menu": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        }
+      }
+    },
+    "portfolio": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "projectDate": {
+          "type": "boolean"
+        },
+        "published": {
+          "type": "number"
+        },
+        "publishedAt": {
+          "type": "boolean"
+        }
+      }
+    },
+    "url-alia": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        }
+      }
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "biography": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "active": {
+          "type": "number"
+        },
+        "language": {
+          "type": "string"
+        },
+        "acceptTerms": {
+          "type": "number"
+        },
+        "roles": {
+          "type": "string"
+        },
+        "setAlias": {
+          "type": "boolean"
+        }
+      }
+    },
+    "userPrivacity": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "privacity": {
+          "type": "string"
+        }
+      }
+    },
+    "modelsterms": {
+      "type": "object",
+      "properties": {
+        "modelName": {
+          "type": "string"
+        },
+        "modelId": {
+          "type": "number"
+        },
+        "field": {
+          "type": "string"
+        },
+        "isTag": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        },
+        "vocabularyName": {
+          "type": "string"
+        }
+      }
+    },
+    "term": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "vocabularyName": {
+          "type": "string"
+        }
+      }
+    },
+    "vocabulary": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "widget": {
+      "type": "object",
+      "properties": {
+        "creatorId": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "modelName": {
+          "type": "string"
+        },
+        "modelId": {
+          "type": "number"
+        },
+        "inRecord": {
+          "type": "number"
+        },
+        "layout": {
+          "type": "string"
+        },
+        "regionName": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "theme": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "boolean"
+        },
+        "configuration": {
+          "type": "string"
+        }
+      }
+    },
+    "passportGrantToken": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "token_type": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "string"
+        },
+        "expireDate": {
+          "type": "boolean"
+        },
+        "isValid": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "We.js site and documentation",
+    "url": "https://wejs.org"
+  }
+}
