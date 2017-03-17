@@ -19,7 +19,7 @@
     "we-admin-blog": "^1.1.2",
     "we-core": "^1.12.4",
     "we-passport-oauth2-password": "^1.1.0",
-    "we-plugin-acl": "^1.2.9",
+    "we-plugin-acl": "^1.2.10",
     "we-plugin-article": "^1.0.1",
     "we-plugin-auth": "^1.2.1",
     "we-plugin-bootstrap3": "1.0.0",
@@ -45,7 +45,7 @@
   "devDependencies": {
     "gulp": "3.9.1",
     "mocha": "3.2.0",
-    "sinon": "1.17.7",
+    "sinon": "2.0.0",
     "supertest": "^3.0.0",
     "we-gulp-tasks-default": "1.1.0",
     "we-test-tools": "^0.3.19"
