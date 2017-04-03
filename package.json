@@ -16,7 +16,7 @@
   "dependencies": {
     "express-mysql-session": "^1.2.0",
     "mysql": "^2.13.0",
-    "we-admin-blog": "^1.1.5",
+    "we-admin-blog": "^1.1.6",
     "we-core": "^1.12.4",
     "we-passport-oauth2-password": "^1.1.2",
     "we-plugin-acl": "^1.2.11",
