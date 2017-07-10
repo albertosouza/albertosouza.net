@@ -448,3 +448,18 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
+
+.bg-primary {
+  background: #000;
+}
+header {
+  background: url(../img/bg1.jpg);
+}
+
+section.cta {
+  background-image: url(../img/bg2.jpg);
+}
+
+.finger-1 {
+  width: 100%;
+}
