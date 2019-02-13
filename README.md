@@ -1,10 +1,10 @@
-#Blog pessoal do Alberto Souza
+# Blog pessoal do Alberto Souza
 
 **Build With:**
 
 - We.js
 
-#How to install
+# How to install
 
 1. Clone this project
 2. Create one database for this project
@@ -22,6 +22,6 @@ npm run dev
 
 See http://wejs.org for we.js docs
 
-#Copyright and license
+# Copyright and license
 
 MIT
