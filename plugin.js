@@ -6,7 +6,7 @@
  * @return {Object}             intance of we.js Plugin class
  */
 
-var homeMetatagCache = '',
+let homeMetatagCache = '',
   defaultMetatagForAllRoutes = '';
 
 function setHomeMetadaTagCache (req) {
@@ -20,7 +20,7 @@ function setHomeMetadaTagCache (req) {
     // Default tags:
     '<meta name="description" content="'+description+'">'+
     '<meta name="keywords" '+
-      'content="Node.js,JavaScript,IoT,Beacon,Internet das Coisas,desenvolvimento de sistemas,Alberto Souza">'+
+      'content="Node.js,JavaScript,IoT,Processamento de dados,desenvolvimento de sistemas,Alberto Souza,Alberto">'+
     // OG tags:
     '<meta property="og:url" content="'+hostname+'" />'+
     '<meta property="og:title" content="Site do Alberto Souza" />' +
@@ -68,7 +68,6 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       model: 'article',
       action: 'find',
       template: 'article/find',
-      title: 'Site do Alberto Souza',
       /**
        * Home metadata tag handler
        */
@@ -89,6 +88,15 @@ module.exports = function loadPlugin(projectPath, Plugin) {
   });
 
   plugin.events.on('we:after:load:express', function(we) {
+
+    we.express.use(function defaultTitle(req, res, next) {
+      if (we.systemSettings && we.systemSettings.siteName) {
+        res.locals.title = we.systemSettings.siteName;
+      }
+
+      next();
+    });
+
     we.express.use(function defaultMetatagsForAllRoutes(req, res, next) {
       if (!defaultMetatagForAllRoutes) {
         setDefaultMetatagsForAllRoutes(req);

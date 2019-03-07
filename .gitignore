@@ -50,3 +50,7 @@ files/wejsdoc
 .tmp
 config/locals.js
 config/local.js
+config/log-local.js
+
+files/db-settings-watch-file.txt
+files/sync-menu.txt

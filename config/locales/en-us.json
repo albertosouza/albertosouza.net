@@ -1,5 +1,6 @@
 {
   "Actions": "Actions",
+  "Block": "Block",
   "Cancel": "Cancel",
   "Delete": "Delete",
   "Edit": "Edit",
@@ -12,6 +13,7 @@
   "Register": "Register",
   "Save": "Save",
   "Search": "Search",
+  "Un Block": "Un Block",
   "Validation isEmail failed": "The email format is invalid",
   "View": "View",
   "Widget": "Widget",
@@ -47,6 +49,7 @@
   "auth.forgot-password.email.send": "Reset password email was sent to your email",
   "auth.forgot-password.reset-password": "Reset password",
   "auth.login.authenticated.msg": "You are authenticated, <a href='/auth/logout'>click here to logout</a>",
+  "auth.login.throttle.limit": "You have reached the limit of login attempts, wait a few minutes to try again",
   "auth.login.user.incorrect.password.or.email": "Your email or password is wrong",
   "auth.login.user.not.active": "You need to validate your account after login in this system, check your email or contact the system administrator",
   "auth.login.wrong.email.or.password": "Your email or password is wrong or you dont are registered in this system",
