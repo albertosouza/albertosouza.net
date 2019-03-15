@@ -24,7 +24,7 @@
     "we-core": "^2.1.0",
     "we-passport-oauth2-password": "^2.0.1",
     "we-plugin-acl": "^1.2.13",
-    "we-plugin-article": "^1.1.0",
+    "we-plugin-article": "^1.1.1",
     "we-plugin-auth": "^2.3.1",
     "we-plugin-bootstrap3": "1.0.0",
     "we-plugin-db-system-settings": "^1.3.2",
