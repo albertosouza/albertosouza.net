@@ -20,7 +20,7 @@
     "express-mysql-session": "^2.1.0",
     "mysql2": "^1.6.5",
     "redis": "^2.8.0",
-    "we-admin-blog": "^1.4.0",
+    "we-admin-blog": "^1.4.1",
     "we-core": "^2.1.0",
     "we-passport-oauth2-password": "^2.0.1",
     "we-plugin-acl": "^1.2.13",
