@@ -882,12 +882,12 @@ connect-flash@0.1.1:
   resolved "https://registry.yarnpkg.com/connect-flash/-/connect-flash-0.1.1.tgz#d8630f26d95a7f851f9956b1e8cc6732f3b6aa30"
   integrity sha1-2GMPJtlaf4UfmVax6MxnMvO2qjA=
 
-connect-redis@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/connect-redis/-/connect-redis-3.4.0.tgz#4040dd3755bddbf93478fb84937a74052c31b965"
-  integrity sha512-YKPSO9tLwzUr8jzhsGMdSJUxevWrDt0ggXRcTMb+mtnJ/vWGlWV7RC4VUMgqvZv3uTGDFye8Bf7d6No0oSVkOQ==
+connect-redis@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/connect-redis/-/connect-redis-3.4.1.tgz#0623af46182232457fefbc7d4f552d87d35b3d20"
+  integrity sha512-oXNcpLg/PJ6G4gbhyGwrQK9mUQTKYa2aEnOH9kWIxbNUjIFPqUmzz75RdLp5JTPSjrBVcz+9ll4sSxfvlW0ZLA==
   dependencies:
-    debug "^4.0.1"
+    debug "^4.1.1"
     redis "^2.8.0"
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
@@ -1054,7 +1054,7 @@ debug@4.1.0:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.0.1:
+debug@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
   integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
@@ -4816,10 +4816,10 @@ supertest@^2.0.1:
     methods "1.x"
     superagent "^2.0.0"
 
-supertest@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/supertest/-/supertest-3.4.2.tgz#bad7de2e43d60d27c8caeb8ab34a67c8a5f71aad"
-  integrity sha512-WZWbwceHUo2P36RoEIdXvmqfs47idNNZjCuJOqDz6rvtkk8ym56aU5oglORCpPeXGxT7l9rkJ41+O1lffQXYSA==
+supertest@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/supertest/-/supertest-4.0.2.tgz#c2234dbdd6dc79b6f15b99c8d6577b90e4ce3f36"
+  integrity sha512-1BAbvrOZsGA3YTCWqbmh14L0YEq0EGICX/nBnfkfVJn7SrxQV1I3pMYjSzG9y/7ZU2V9dWqyqk2POwxlb09duQ==
   dependencies:
     methods "^1.1.2"
     superagent "^3.8.3"
@@ -5287,10 +5287,10 @@ walk@2.2.1:
   dependencies:
     forEachAsync "~2.2"
 
-we-admin-blog@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/we-admin-blog/-/we-admin-blog-1.4.0.tgz#c003872cf25876ec35565da97f009232f6485c1a"
-  integrity sha512-AYGX6jHYB+EiHYcmi5LWa4L0L0WNd0z26Ptd80dBdYeFn/emY77vEL33jwUNMhF3xgrfwP5WIzo/fQvLKo9GMA==
+we-admin-blog@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/we-admin-blog/-/we-admin-blog-1.4.1.tgz#bb171cd1975009eb0534a72b0a7709d13c651f35"
+  integrity sha512-LRE8v0ryUs0K3NNbFKqsPXEiXFr2/mWuXiIDVIbSCcWI16JoQXZLHesIkXtRbUSs3oxku6K41RFeOGRo5FzFzQ==
   dependencies:
     sortablejs "^1.7.0"
 
@@ -5353,10 +5353,10 @@ we-plugin-acl@^1.2.13:
   dependencies:
     we-core-acl "^1.2.3"
 
-we-plugin-article@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/we-plugin-article/-/we-plugin-article-1.0.1.tgz#c340d08765bbff6b89cf39748b2cb2950384a2ca"
-  integrity sha1-w0DQh2W7/2uJzzl0iyyylQOEoso=
+we-plugin-article@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/we-plugin-article/-/we-plugin-article-1.1.1.tgz#8930be96c8f641328fd8fe2d2102a628d9190172"
+  integrity sha512-gKXAkfrLLfBdgyUedoJM9444KLShAKi/0C2VvzZUaL2uOE7MckY0qdoH0flsLBauiHP3aC7v+0Z1VKLEXVbm0w==
 
 we-plugin-auth@^2.3.1:
   version "2.3.1"
@@ -5439,15 +5439,15 @@ we-plugin-menu@^2.0.2:
   dependencies:
     chokidar "^1.7.0"
 
-we-plugin-page@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/we-plugin-page/-/we-plugin-page-2.0.0.tgz#435e35366584a8e6f7f655edb50f6b7907b64fde"
-  integrity sha512-RF7ElgNgDmtY2D0YwtwYmWHx5z3ZlWvMeBxf+/nx8Vd2mxaPWedtEwOTVpsgLe9uFlq+vWqooM/CE7Hr/Bwzdw==
+we-plugin-page@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/we-plugin-page/-/we-plugin-page-2.0.1.tgz#2987a1345828db828e9ed206b46900b6a0f79d1d"
+  integrity sha512-mISL1jTctNhOvIQcx/4oMh6Cduxl51pK+G1rV0bcMdrGKMIOkSiS1eSwlH9xGg1r2+qsIxV4OmE4FclWFevgnA==
 
-we-plugin-portfolio@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/we-plugin-portfolio/-/we-plugin-portfolio-1.1.0.tgz#3238428f73c6351514695960702d5116d8f1b7ef"
-  integrity sha512-ec3bvrvMgeKs4wAi1rGPqV+d00kOOzc8tzOpixCIEuuZii5e9vCYYC450FQp3XeBGNXvLkdE3rA+8OmZTGH0AQ==
+we-plugin-portfolio@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/we-plugin-portfolio/-/we-plugin-portfolio-1.1.1.tgz#5ac372f8cbd86e4de764071167f9506b41bdbc56"
+  integrity sha512-YMpYPm8GPtKmedOtK7LCYWE89xjLe7Cds8lCcLOKRa3pCiK3xg2MSyt0rEYycKCbMPZhp+rQ9i5X1AnipzamtQ==
 
 we-plugin-rss@1.1.0:
   version "1.1.0"
@@ -5476,7 +5476,7 @@ we-plugin-user@^2.0.1:
   resolved "https://registry.yarnpkg.com/we-plugin-user/-/we-plugin-user-2.0.1.tgz#7fa9b7343f215ee676d8e5f785a043ceabe803db"
   integrity sha512-QEZwY6NhsCbFsIPjJ//v6NGd3qOZ71zjtT0CzAzP1vLHEKYy7C1A+EZlHrY9wXNREuQIt9SAqG1o0R7BwHiKpQ==
 
-we-plugin-view@^1.4.9:
+we-plugin-view@^1.4.10:
   version "1.4.10"
   resolved "https://registry.yarnpkg.com/we-plugin-view/-/we-plugin-view-1.4.10.tgz#095a3ad88855c983fe11aa0ec957497f24c9710d"
   integrity sha512-I7C+ICzExiKbDlAc+B6PIITVPviVCifFbtoSYxesphiZwOfnPrevPTQJthsdNkVLMH4I5m+N9sJvq3cqNkgzYA==
