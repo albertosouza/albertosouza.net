@@ -38,7 +38,7 @@
     "we-plugin-i18n-api": "^1.1.0",
     "we-plugin-menu": "^2.0.2",
     "we-plugin-page": "^2.0.2",
-    "we-plugin-portfolio": "1.1.1",
+    "we-plugin-portfolio": "1.1.2",
     "we-plugin-rss": "1.1.0",
     "we-plugin-site-contact": "^2.1.0",
     "we-plugin-url-alias": "^2.1.0",
@@ -47,7 +47,7 @@
     "we-plugin-view": "^1.4.10",
     "we-plugin-vocabulary": "2.0.5",
     "we-plugin-widget": "~2.0.0",
-    "we-theme-blog-startbootstrap-clean": "^1.1.0"
+    "we-theme-blog-startbootstrap-clean": "^1.1.4"
   },
   "devDependencies": {
     "gulp": "^4.0.0",
