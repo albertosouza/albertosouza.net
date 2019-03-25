@@ -5430,10 +5430,10 @@ we-plugin-page@^2.0.2:
   resolved "https://registry.yarnpkg.com/we-plugin-page/-/we-plugin-page-2.0.2.tgz#23f445ac928f8a943b71860d90450cc745cd0666"
   integrity sha512-Y0mhabHTtr/Hr/7QGlOVJxZ9BGlaCCPGzrq9dvNO8MMQqmQlyL90pxxThiW71IRQZmTJbcNY2+Uti410GpBSaQ==
 
-we-plugin-portfolio@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/we-plugin-portfolio/-/we-plugin-portfolio-1.1.1.tgz#5ac372f8cbd86e4de764071167f9506b41bdbc56"
-  integrity sha512-YMpYPm8GPtKmedOtK7LCYWE89xjLe7Cds8lCcLOKRa3pCiK3xg2MSyt0rEYycKCbMPZhp+rQ9i5X1AnipzamtQ==
+we-plugin-portfolio@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/we-plugin-portfolio/-/we-plugin-portfolio-1.1.2.tgz#a476921b37822b00c3bb647c2fe784d39ba6b05a"
+  integrity sha512-bBfI/5Q+4PzhZ52uoI/liLzKpZkzkbqvl1dGYpiXXJOoaxMNs6p80pNfkurnxmyqYBMKDIpcAt4iLCE5kmg+EA==
 
 we-plugin-rss@1.1.0:
   version "1.1.0"
@@ -5491,11 +5491,6 @@ we-test-tools@^0.3.19:
     fs-extra "^1.0.0"
     lodash "^4.17.4"
     supertest "^2.0.1"
-
-we-theme-blog-startbootstrap-clean@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/we-theme-blog-startbootstrap-clean/-/we-theme-blog-startbootstrap-clean-1.1.0.tgz#897f0bef3b87426acd8af12c21f3459ef83607d2"
-  integrity sha512-zTcHGB3MyW2Yb4vmKrbMSNF7FPkzTNxEWW8pL7G4vbr6Mqf8SJvDzeNmqRCoq/Tdzi8JQDRCO69C0cp9idnDJw==
 
 which-module@^1.0.0:
   version "1.0.0"

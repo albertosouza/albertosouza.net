@@ -45,9 +45,8 @@
     "we-plugin-user": "^2.0.1",
     "we-plugin-user-settings": "^2.0.3",
     "we-plugin-view": "^1.4.10",
-    "we-plugin-vocabulary": "2.0.5",
-    "we-plugin-widget": "~2.0.0",
-    "we-theme-blog-startbootstrap-clean": "^1.1.4"
+    "we-plugin-vocabulary": "2.0.6",
+    "we-plugin-widget": "~2.0.0"
   },
   "devDependencies": {
     "gulp": "^4.0.0",
