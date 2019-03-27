@@ -413,5 +413,6 @@
   "form-t-s": "Tradução",
   "form-placeholder-t-s": " ",
   "form-helper-t-s": " ",
-  "t-Save": "Salvar"
+  "t-Save": "Salvar",
+  "t.l": "Linguagem"
 }
