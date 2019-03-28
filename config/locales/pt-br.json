@@ -414,5 +414,6 @@
   "form-placeholder-t-s": " ",
   "form-helper-t-s": " ",
   "t-Save": "Salvar",
-  "t.l": "Linguagem"
+  "t.l": "Linguagem",
+  "newsletter.subscription.success": "Obrigado! Prometo enviar poucos e-mails."
 }
