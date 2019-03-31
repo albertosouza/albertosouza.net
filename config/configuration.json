@@ -15,7 +15,9 @@
         "find_file",
         "find_image",
         "find_user",
-        "find_portfolio"
+        "find_portfolio",
+        "find_news",
+        "create_contact_message"
       ],
       "isSystemRole": true
     },
@@ -30,7 +32,9 @@
         "find_file",
         "find_image",
         "find_user",
-        "find_portfolio"
+        "find_portfolio",
+        "find_news",
+        "create_contact_message"
       ],
       "isSystemRole": true
     },
