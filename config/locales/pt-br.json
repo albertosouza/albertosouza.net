@@ -441,5 +441,9 @@
   "sitecontact.send.email": "A mensagem foi enviada com sucesso. Em breve a equipe do site entrará em contato com você!",
   "sitecontact.success.email.subject": "A mensagem foi enviada com sucesso. Em breve a equipe do site entrará em contato com você!",
   "form-sitecontact-subject": "Assunto do contato",
-  "form-helper-sitecontact-subject": "Selecione um assunto relácionado com o campo acima"
+  "form-helper-sitecontact-subject": "Selecione um assunto relácionado com o campo acima",
+  "form-placeholder-sitecontact-email": " ",
+  "form-placeholder-sitecontact-message": " ",
+  "form-placeholder-sitecontact-name": " ",
+  "form-placeholder-sitecontact-phone": " "
 }
