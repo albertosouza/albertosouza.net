@@ -15,8 +15,10 @@ module.exports = {
   rss: {
     models: {
       article: { // model name
-        title: 'Articles from Alberto Souza site - The coder!', // title of your xml file
-        description: 'My newest site articles', // description for your xml file
+        // title of your xml file
+        title: 'Posts - Alberto Souza',
+        // description for your xml file
+        description: 'RSS com meus ultimos posts sobre tecnologia e assuntos que gosto.',
         item: {
           title: 'title', // model attribute to get title
           description: 'about'  // model attribute to get description
