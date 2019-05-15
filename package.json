@@ -45,7 +45,7 @@
     "we-plugin-url-alias": "^2.1.0",
     "we-plugin-user": "^2.0.1",
     "we-plugin-user-settings": "^2.0.3",
-    "we-plugin-view": "^1.4.12",
+    "we-plugin-view": "^1.5.0",
     "we-plugin-vocabulary": "2.0.6",
     "we-plugin-widget": "~2.0.0"
   },
