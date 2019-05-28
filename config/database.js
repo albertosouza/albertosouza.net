@@ -1,3 +1,6 @@
+
+const isWin = process.platform === 'win32';
+
 let configs = {
   port: process.env.PORT || 4040,
   database: {
@@ -7,15 +10,13 @@ let configs = {
       protocol: 'mysql'
     },
     dev: {
-      uri: process.env.DATABASE_URL || 'mysql://project:project@127.0.0.1:3906/project',
-      dialect: 'mysql',
-      protocol: 'mysql'
+      dialect: 'sqlite',
+      storage: 'database.sqlite',
+      // logging: console.log
     },
     test: {
-      dialect: 'mysql',
-      database: 'test',
-      username: 'root',
-      password: ''
+      dialect: 'sqlite',
+      storage: 'database-test.sqlite',
     }
   }
 }
@@ -54,7 +55,21 @@ if (process.env.REDIS_URL) {
     saveUninitialized: false
   }
 } else if (process.env.NODE_ENV != 'production') {
-  configs.session = null;
+  const session = require('express-session');
+  const SQLiteStore = require('connect-sqlite3')(session);
+
+  configs.session = {
+    secret: 'as8da0s9d8asd0',
+    store: new SQLiteStore({
+      table: 'ssessions',
+      db: 'sessions.sqlite',
+      dir: process.cwd()
+    }),
+    resave: false, // don't save session if unmodified
+    saveUninitialized: false
+  };
+} else {
+  if (!isWin) configs.session = null;
 }
 
 module.exports = configs;

@@ -30,12 +30,13 @@ build/Release
 node_modules
 client/bower_components
 bower_components
-
+server/themes
 # Debug log from npm
 npm-debug.log
 
 # test database
 files/sqlite
+*.sqlite
 
 # upload files
 files/upload
