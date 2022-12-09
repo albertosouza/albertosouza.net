@@ -21,7 +21,7 @@
     "mysql2": "^1.6.5",
     "redis": "^2.8.0",
     "we-admin-blog": "^1.4.2",
-    "we-core": "^2.1.2",
+    "we-core": "^2.2.3",
     "we-passport-oauth2-password": "^2.0.1",
     "we-plugin-acl": "^1.2.14",
     "we-plugin-article": "^1.1.1",
